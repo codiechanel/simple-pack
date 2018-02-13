@@ -1,34 +1,33 @@
 const path = require("path");
-const Webpack = require('webpack');
-const autoprefixer = require('autoprefixer');
+const Webpack = require("webpack");
+// const ExtractTextPlugin = require("extract-text-webpack-plugin");
+const autoprefixer = require("autoprefixer");
+
+/**
+ * hard coded for now...
+ */
+const publicPath = "/";
+// const shouldUseSourceMap = false;
+// const shouldUseRelativeAssetPaths = publicPath === "./";
+// Note: defined here because it will be used more than once.
+// const cssFilename = "static/css/[name].[contenthash:8].css";
+
+
 const postCSSLoaderOptions = {
   // Necessary for external CSS imports to work
   // https://github.com/facebook/create-react-app/issues/2677
-  ident: 'postcss',
+  ident: "postcss",
   plugins: () => [
-    require('postcss-flexbugs-fixes'),
+    require("postcss-flexbugs-fixes"),
     autoprefixer({
-      flexbox: 'no-2009',
-    }),
-  ],
+      flexbox: "no-2009"
+    })
+  ]
 };
 
-// const publicPath = "http://localhost:8080/"
-const publicPath = "/";
-
 module.exports = {
-  devServer: {
-    // no effect
-    // inline: true,
-    contentBase: path.join(process.cwd(), "dist"),
-    hot: true,
-    filename: "bundle.js",
-    publicPath: publicPath,
-    stats: {
-      colors: true
-    }
-  },
-
+  // Don't attempt to continue if there are any errors.
+  bail: true,
   mode: "production",
   module: {
     rules: [
@@ -122,16 +121,19 @@ module.exports = {
   //   context: path.join(process.cwd(), "src"),
   entry: [
     // polyfills if any
-    "webpack/hot/dev-server",
-    "webpack-dev-server/client?http://localhost:8080/",
     "./src/index.js"
   ],
+
+  // output: {
+  //   filename: "static/js/[name].[chunkhash:8].js",
+  //   chunkFilename: "static/js/[name].[chunkhash:8].chunk.js",
+  //   publicPath: publicPath,
+  //   path: path.resolve(process.cwd(), "dist")
+  // },
   output: {
     filename: "bundle.js",
-    publicPath: "/",
+    publicPath: publicPath,
     path: path.resolve(process.cwd(), "dist")
   },
   plugins: [new Webpack.HotModuleReplacementPlugin()]
 };
-
-
