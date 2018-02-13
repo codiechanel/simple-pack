@@ -27,6 +27,14 @@ module.exports = {
     publicPath: publicPath,
     stats: {
       colors: true
+    }, 
+    proxy: {
+      "/.netlify/functions": {
+        "target": "http://localhost:9000",
+        "pathRewrite": {
+          "^/\\.netlify/functions": ""
+        }
+      }
     }
   },
 
