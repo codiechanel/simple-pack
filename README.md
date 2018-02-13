@@ -11,7 +11,7 @@ simple-pack is my personal build tool for react apps, pretty much similar to cre
 
 ## Why I created this?
 
-*the problem I have with create-react-app is that it installs react-scripts in my new project directory everytime I create a new project. This package alone takes a lot of space, and time to install. If you work on multiple projects, this could become a hassle. This is why I decided to create my own build tool.
+*the problem I have with create-react-app is that it installs react-scripts everytime I create a new project, taking up more hard drive space, and time to install. If you work on multiple projects, this could become a hassle. This is why I decided to create my own build tool.
 
 ## To use
 
