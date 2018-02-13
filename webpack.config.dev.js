@@ -28,7 +28,7 @@ module.exports = {
   devServer: {
     // no effect
     // inline: true,
-    contentBase: path.join(process.cwd(), "dist"),
+    contentBase: path.join(process.cwd(), "build"),
     hot: true,
     filename: "bundle.js",
     publicPath: publicPath,
@@ -140,7 +140,7 @@ module.exports = {
     pathinfo: true,
     filename: "bundle.js",
     publicPath: "/",
-    path: path.resolve(process.cwd(), "dist"),
+    path: path.resolve(process.cwd(), "build"),
     devtoolModuleFilenameTemplate: info =>
       path.resolve(info.absoluteResourcePath).replace(/\\/g, "/")
   },

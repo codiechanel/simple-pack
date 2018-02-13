@@ -130,7 +130,7 @@ module.exports = {
   output: {
     filename: "bundle.js",
     publicPath: publicPath,
-    path: path.resolve(process.cwd(), "dist")
+    path: path.resolve(process.cwd(), "build")
   },
   plugins: [
     new UglifyJsPlugin({
