@@ -19,20 +19,20 @@ install globally (recommended):
 
 `npm i -g @codiechanel/simple-pack`
 
-then go to your project folder and run:
+then go to your project folder and simply run:
 
-`npx simple-pack`
+`simple-pack`
 
 It assumes the following:
 
 - Your src folder is located at ./src
 - your build folder is located at ./dist
 
-to install locally, simply run:
+to install locally (not recommended):
 
 `npm i @codiechanel/simple-pack`
 
-However, if you have multiple projects, then npm installing this would eat up a lot of space, which defeats of the purpose of this build tool. 
+However, if you have multiple projects, then npm installing this everytime would eat up a lot of space, which defeats the purpose of this build tool which was designed to be installed globally. 
 
 ## Roadmap
 
