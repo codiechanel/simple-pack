@@ -10,8 +10,8 @@
   },
   "main": "bin/cmd.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1", 
-    "patch":"npm version patch -m 'Upgrade to %s for reasons'"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "patch": "npm version patch -m 'Upgrade to %s for reasons'"
   },
   "keywords": [],
   "author": "Codie Chanel",
@@ -26,6 +26,7 @@
     "@babel/preset-react": "^7.0.0-beta.39",
     "autoprefixer": "^8.0.0",
     "babel-loader": "^8.0.0-beta.0",
+    "commander": "^2.14.1",
     "css-loader": "^0.28.9",
     "postcss-flexbugs-fixes": "^3.3.0",
     "postcss-loader": "^2.1.0",

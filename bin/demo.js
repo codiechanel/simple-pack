@@ -1,7 +1,7 @@
 #!/usr/bin/env node
 
 ("use strict");
-console.log(__dirname, "process.cwd()", process.cwd());
+console.log(__dirname, "process.cwd()", process.cwd())
 
 var build = require("../lib/build");
 var program = require("commander");
@@ -18,15 +18,8 @@ program
   .description("starts in dev mode")
   .action(function(cmd, options) {
     console.log("Starting server");
-    build.dev();
+    build.dev()
+    
   });
 
-program
-  .command("prod")
-  .description("starts in prod mode")
-  .action(function(cmd, options) {
-    console.log("Starting server");
-    build.prod();
-  });
-
-program.parse(process.argv);
+  program.parse(process.argv);
