@@ -1,0 +1,35 @@
+{
+  "name": "@codiechanel/simple-pack",
+  "version": "1.0.2",
+  "description": "Fast react startup development",
+  "engines": {
+    "node": ">=6.10"
+  },
+  "bin": {
+    "simple-pack": "bin/cmd.js"
+  },
+  "main": "bin/cmd.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "Codie Chanel",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/codiechanel/simple-pack.git"
+  },
+  "dependencies": {
+    "@babel/core": "^7.0.0-beta.39",
+    "@babel/preset-env": "^7.0.0-beta.39",
+    "@babel/preset-react": "^7.0.0-beta.39",
+    "autoprefixer": "^8.0.0",
+    "babel-loader": "^8.0.0-beta.0",
+    "css-loader": "^0.28.9",
+    "postcss-flexbugs-fixes": "^3.3.0",
+    "postcss-loader": "^2.1.0",
+    "style-loader": "^0.20.1",
+    "webpack": "^4.0.0-beta.1",
+    "webpack-dev-server": "^2.11.1"
+  }
+}
