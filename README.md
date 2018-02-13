@@ -8,6 +8,8 @@ simple-pack is my personal build tool for react apps, pretty much similar to cre
 - Uses the latest Babel that allows you to target specific browser versions.
 - Built-in post css
 - *one time global install (makes your project folder leaner) 
+- Netlify lambda support. Now you have one build tool to compile react and node js scripts. 
+- 68 mb install size. 
 
 ## Why I created this?
 
