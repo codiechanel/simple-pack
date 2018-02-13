@@ -17,6 +17,7 @@ const postCSSLoaderOptions = {
 const publicPath = "/";
 
 module.exports = {
+  devtool: 'cheap-module-source-map',
   devServer: {
     // no effect
     // inline: true,
@@ -31,6 +32,7 @@ module.exports = {
 
   mode: "development",
   module: {
+    
     rules: [
       {
         test: /\.js?$/,
@@ -127,9 +129,12 @@ module.exports = {
     "./src/index.js"
   ],
   output: {
+    pathinfo: true,
     filename: "bundle.js",
     publicPath: "/",
-    path: path.resolve(process.cwd(), "dist")
+    path: path.resolve(process.cwd(), "dist"), 
+    devtoolModuleFilenameTemplate: info =>
+      path.resolve(info.absoluteResourcePath).replace(/\\/g, '/'),
   },
   plugins: [new Webpack.HotModuleReplacementPlugin()]
 };

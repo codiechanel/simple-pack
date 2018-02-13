@@ -3,7 +3,7 @@
 ("use strict");
 console.log(__dirname, "process.cwd()", process.cwd());
 
-var build = require("../lib/build");
+var buildReact = require("../lib/buildReact");
 var program = require("commander");
 var fs = require("fs");
 var path = require("path");
@@ -18,7 +18,7 @@ program
   .description("starts in dev mode")
   .action(function(cmd, options) {
     console.log("Starting server");
-    build.dev();
+    buildReact.dev();
   });
 
 program
@@ -26,7 +26,7 @@ program
   .description("starts in prod mode")
   .action(function(cmd, options) {
     console.log("Starting server");
-    build.prod();
+    buildReact.prod();
   });
 
 program.parse(process.argv);
