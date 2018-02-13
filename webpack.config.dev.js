@@ -13,6 +13,13 @@ const postCSSLoaderOptions = {
   ]
 };
 
+const globalModules = require("global-modules");
+const ourGlobalFolder = path.join(
+  globalModules,
+  "./",
+  "@codiechanel/simple-pack"
+);
+
 // const publicPath = "http://localhost:8080/"
 const publicPath = "/";
 
@@ -58,7 +65,9 @@ module.exports = {
                 }
               ]
             ],
-            plugins: [require.resolve("@babel/plugin-proposal-class-properties")]
+            plugins: [
+              require.resolve("@babel/plugin-proposal-class-properties")
+            ]
           }
         }
       },
@@ -111,22 +120,13 @@ module.exports = {
   //     path.resolve('./vendor/modules')
   //   ]
   // },
+  // "/Users/admin/AppData/Roaming/npm/node_modules/@codiechanel/simple-pack"
+
   resolve: {
-    modules: [
-      path.resolve(
-        "/Users/admin/AppData/Roaming/npm/node_modules/@codiechanel/simple-pack",
-        "node_modules"
-      ),
-      "node_modules"
-    ]
+    modules: [path.resolve(ourGlobalFolder, "node_modules"), "node_modules"]
   },
   resolveLoader: {
-    modules: [
-      path.resolve(
-        "/Users/admin/AppData/Roaming/npm/node_modules/@codiechanel/simple-pack",
-        "node_modules"
-      )
-    ]
+    modules: [path.resolve(ourGlobalFolder, "node_modules")]
   },
   context: process.cwd(),
   //   context: path.join(process.cwd(), "src"),
