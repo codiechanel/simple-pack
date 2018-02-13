@@ -1,1 +1,3 @@
 The newversion argument should be a valid semver string, a valid second argument to semver.inc (one of patch, minor, major, prepatch, preminor, premajor, prerelease), or from-git. In the second case, the existing version will be incremented by 1 in the specified field. from-git will try to read the latest git tag, and use that as the new npm version.
+
+git push --tags

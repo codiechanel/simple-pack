@@ -10,7 +10,8 @@
   },
   "main": "bin/cmd.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1", 
+    "patch":"npm version patch -m 'Upgrade to %s for reasons'"
   },
   "keywords": [],
   "author": "Codie Chanel",
