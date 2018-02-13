@@ -34,6 +34,10 @@ to install locally (not recommended):
 
 However, if you have multiple projects, then npm installing this everytime would eat up a lot of space, which defeats the purpose of this build tool which was designed to be installed globally. 
 
+## Plugins
+
+- @babel/plugin-proposal-class-properties (experimental)
+
 ## Roadmap
 
 Test

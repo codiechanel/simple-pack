@@ -1,23 +1,23 @@
 const path = require("path");
-const Webpack = require('webpack');
-const autoprefixer = require('autoprefixer');
+const Webpack = require("webpack");
+const autoprefixer = require("autoprefixer");
 const postCSSLoaderOptions = {
   // Necessary for external CSS imports to work
   // https://github.com/facebook/create-react-app/issues/2677
-  ident: 'postcss',
+  ident: "postcss",
   plugins: () => [
-    require('postcss-flexbugs-fixes'),
+    require("postcss-flexbugs-fixes"),
     autoprefixer({
-      flexbox: 'no-2009',
-    }),
-  ],
+      flexbox: "no-2009"
+    })
+  ]
 };
 
 // const publicPath = "http://localhost:8080/"
 const publicPath = "/";
 
 module.exports = {
-  devtool: 'cheap-module-source-map',
+  devtool: "cheap-module-source-map",
   devServer: {
     // no effect
     // inline: true,
@@ -27,11 +27,11 @@ module.exports = {
     publicPath: publicPath,
     stats: {
       colors: true
-    }, 
+    },
     proxy: {
       "/.netlify/functions": {
-        "target": "http://localhost:9000",
-        "pathRewrite": {
+        target: "http://localhost:9000",
+        pathRewrite: {
           "^/\\.netlify/functions": ""
         }
       }
@@ -40,7 +40,6 @@ module.exports = {
 
   mode: "development",
   module: {
-    
     rules: [
       {
         test: /\.js?$/,
@@ -58,7 +57,8 @@ module.exports = {
                   }
                 }
               ]
-            ]
+            ],
+            plugins: [require.resolve("@babel/plugin-proposal-class-properties")]
           }
         }
       },
@@ -140,11 +140,9 @@ module.exports = {
     pathinfo: true,
     filename: "bundle.js",
     publicPath: "/",
-    path: path.resolve(process.cwd(), "dist"), 
+    path: path.resolve(process.cwd(), "dist"),
     devtoolModuleFilenameTemplate: info =>
-      path.resolve(info.absoluteResourcePath).replace(/\\/g, '/'),
+      path.resolve(info.absoluteResourcePath).replace(/\\/g, "/")
   },
   plugins: [new Webpack.HotModuleReplacementPlugin()]
 };
-
-
