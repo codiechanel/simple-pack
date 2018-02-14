@@ -15,7 +15,7 @@ var pkg = JSON.parse(
 );
 
 program.version(pkg.version);
-
+process.env.BABEL_ENV = "development"
 program
   .option("-c --config <webpack-config>", "additional webpack configuration")
 

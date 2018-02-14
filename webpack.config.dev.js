@@ -1,6 +1,7 @@
 const path = require("path");
 const Webpack = require("webpack");
 const autoprefixer = require("autoprefixer");
+const CopyWebpackPlugin = require("copy-webpack-plugin");
 const postCSSLoaderOptions = {
   // Necessary for external CSS imports to work
   // https://github.com/facebook/create-react-app/issues/2677
@@ -19,6 +20,8 @@ const ourGlobalFolder = path.join(
   "./",
   "@codiechanel/simple-pack"
 );
+
+console.log("ourGlobalFolder", ourGlobalFolder);
 
 // const publicPath = "http://localhost:8080/"
 const publicPath = "/";
@@ -56,17 +59,27 @@ module.exports = {
           options: {
             presets: [
               require.resolve("@babel/preset-react"),
+              // require.resolve("babel-preset-react-app"),
               [
                 require.resolve("@babel/preset-env"),
                 {
                   targets: {
-                    browsers: ["last 2 versions", "safari >= 7"]
+                    // browsers: ["last 2 versions", "safari >= 7"]
+                    browsers: [
+                      "last 2 chrome versions",
+                      "last 2 firefox versions",
+                      "last 2 edge versions"
+                    ]
                   }
                 }
               ]
             ],
             plugins: [
-              require.resolve("@babel/plugin-proposal-class-properties")
+              require.resolve("@babel/plugin-proposal-class-properties"),
+              require.resolve("@babel/plugin-proposal-object-rest-spread"), 
+              require.resolve("@babel/plugin-proposal-decorators")
+              // require.resolve("@babel/plugin-transform-regenerator"),
+              // require.resolve("@babel/plugin-transform-runtime")
             ]
           }
         }
@@ -107,7 +120,17 @@ module.exports = {
             options: postCSSLoaderOptions
           }
         ]
-      }
+      }, 
+      {
+        test: /\.(eot|svg|ttf|woff|woff2)$/,
+        use: [
+          {
+            loader: require.resolve('file-loader'),
+            options: { name: 'static/media/[name].[hash:8].[ext]',}  
+          }
+        ]
+      }, 
+   
     ]
   },
   // this is also a good approach
@@ -144,5 +167,8 @@ module.exports = {
     devtoolModuleFilenameTemplate: info =>
       path.resolve(info.absoluteResourcePath).replace(/\\/g, "/")
   },
-  plugins: [new Webpack.HotModuleReplacementPlugin()]
+  plugins: [
+    new Webpack.HotModuleReplacementPlugin(),
+    new CopyWebpackPlugin([{ from: "public" }])
+  ]
 };

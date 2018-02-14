@@ -11,6 +11,7 @@ simple-pack is my personal build tool for react apps, pretty much similar to cre
 - Netlify lambda support. Now you have one build tool to compile react and node js scripts. 
 - supports proxy. Redirect requests to your node api server. 
 - 68 mb install size. 
+- support for assets/images in css via file-loader
 
 ## Why I created this?
 
@@ -39,9 +40,11 @@ However, if you have multiple projects, then npm installing this everytime would
 
 ## Plugins
 
-- @babel/plugin-proposal-class-properties (experimental)
+- @babel/plugin-proposal-class-properties
+- @babel/plugin-proposal-object-rest-spread
+- @babel/plugin-proposal-decorators
 
 ## Roadmap
 
 Test
-
+Streamline dependencies
