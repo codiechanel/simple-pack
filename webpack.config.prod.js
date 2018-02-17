@@ -40,9 +40,17 @@ module.exports = {
         test: /\.js?$/,
         exclude: /(node_modules|bower_components)/,
         use: {
-          babelrc: false,
+          
           loader: "babel-loader",
           options: {
+               /**
+             * this is very important
+             * we need to set this to false
+             * else, babel will process all
+             * .babelrc it could find
+             * even in imported modules!
+             */
+            babelrc: false,
             presets: [
               require.resolve("@babel/preset-react"),
               [
