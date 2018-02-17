@@ -5,6 +5,7 @@ simple-pack is my personal build tool for react apps, pretty much similar to cre
 ## Features
 
 - Webpack 4
+- multi build options (react app, library, and backend via Netlify Lambda)
 - Uses the latest Babel that allows you to target specific browser versions.
 - Built-in post css
 - *one time global install (makes your project folder leaner) 
