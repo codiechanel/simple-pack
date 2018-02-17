@@ -50,6 +50,7 @@ module.exports = {
         use: {
           loader: "babel-loader",
           options: {
+            babelrc: false,
             presets: [
               require.resolve("@babel/preset-react"),
               [
@@ -80,9 +81,9 @@ module.exports = {
      
     ]
   },
-  // resolve: {
-  //   modules: [path.resolve(ourGlobalFolder, "node_modules"), "node_modules"]
-  // },
+  resolve: {
+    modules: [path.resolve(ourGlobalFolder, "node_modules"), path.resolve(process.cwd(), 'node_modules')]
+  },
   resolveLoader: {
     modules: [path.resolve(ourGlobalFolder, "node_modules")]
   },
@@ -102,9 +103,6 @@ module.exports = {
     // libraryTarget: 'commonjs2',
     
   },
-  externals: {
-    "react": 'react',   // this line is just to use the React dependency of our parent-testing-project instead of using our own React.
-    'material-ui': 'material-ui'
-  }
+  externals: ["react", "material-ui"], 
   
 };

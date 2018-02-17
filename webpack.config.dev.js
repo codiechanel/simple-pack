@@ -57,6 +57,14 @@ module.exports = {
         use: {
           loader: "babel-loader",
           options: {
+            /**
+             * this is very important
+             * we need to set this to false
+             * else, babel will process all
+             * .babelrc it could find
+             * even in imported modules!
+             */
+            babelrc: false,
             presets: [
               require.resolve("@babel/preset-react"),
               // require.resolve("babel-preset-react-app"),
@@ -144,9 +152,13 @@ module.exports = {
   //   ]
   // },
   // "/Users/admin/AppData/Roaming/npm/node_modules/@codiechanel/simple-pack"
-
+/**
+ * i remove the third array which "node_modules"
+ * it has no effect probably since we resolve both to global
+ * and current directory
+ */
   resolve: {
-    modules: [path.resolve(ourGlobalFolder, "node_modules"), path.resolve(process.cwd(), 'node_modules'), "node_modules"]
+    modules: [path.resolve(ourGlobalFolder, "node_modules"), path.resolve(process.cwd(), 'node_modules')]
   },
   resolveLoader: {
     modules: [path.resolve(ourGlobalFolder, "node_modules")]

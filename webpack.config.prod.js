@@ -40,6 +40,7 @@ module.exports = {
         test: /\.js?$/,
         exclude: /(node_modules|bower_components)/,
         use: {
+          babelrc: false,
           loader: "babel-loader",
           options: {
             presets: [
