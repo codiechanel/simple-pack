@@ -82,7 +82,7 @@ module.exports = {
     ]
   },
   resolve: {
-    modules: [path.resolve(ourGlobalFolder, "node_modules"), path.resolve(process.cwd(), 'node_modules')]
+    modules: [path.resolve(ourGlobalFolder, "node_modules"), path.resolve(process.cwd(), 'node_modules'), "node_modules"]
   },
   resolveLoader: {
     modules: [path.resolve(ourGlobalFolder, "node_modules")]

@@ -153,12 +153,12 @@ module.exports = {
   // },
   // "/Users/admin/AppData/Roaming/npm/node_modules/@codiechanel/simple-pack"
 /**
- * i remove the third array which "node_modules"
- * it has no effect probably since we resolve both to global
- * and current directory
+ * the 3rd array entry "node_modules" is important
+ * it is useful when node_modules is located other than the project folder
+ * this will work on yarn workspaces 
  */
   resolve: {
-    modules: [path.resolve(ourGlobalFolder, "node_modules"), path.resolve(process.cwd(), 'node_modules')]
+    modules: [path.resolve(ourGlobalFolder, "node_modules"), path.resolve(process.cwd(), 'node_modules'),"node_modules"]
   },
   resolveLoader: {
     modules: [path.resolve(ourGlobalFolder, "node_modules")]
