@@ -4,6 +4,13 @@ const Webpack = require("webpack");
 const autoprefixer = require("autoprefixer");
 const globalModules = require("global-modules");
 const CopyWebpackPlugin = require("copy-webpack-plugin");
+var fs = require("fs");
+// const pkg = require('./package.json');
+var pkg = JSON.parse(
+  fs.readFileSync(path.join( process.cwd(),  "package.json"))
+);
+let libraryName = pkg.name;
+
 const ourGlobalFolder = path.join(
   globalModules,
   "./",
@@ -33,6 +40,7 @@ const postCSSLoaderOptions = {
 module.exports = {
   // Don't attempt to continue if there are any errors.
   bail: true,
+  // devtool: 'source-map',
   mode: "production",
   module: {
     rules: [
@@ -48,6 +56,7 @@ module.exports = {
                 require.resolve("@babel/preset-env"),
                 {
                   targets: {
+                    // "esmodules": true, 
 
                     browsers: [
                       "last 2 chrome versions",
@@ -68,67 +77,12 @@ module.exports = {
           }
         }
       },
-      {
-        test: /\.css$/,
-        exclude: /\.module\.css$/,
-        use: [
-          require.resolve("style-loader"),
-          {
-            loader: require.resolve("css-loader"),
-            options: {
-              importLoaders: 1
-            }
-          },
-          {
-            loader: require.resolve("postcss-loader"),
-            options: postCSSLoaderOptions
-          }
-        ]
-      },
-      // Adds support for CSS Modules (https://github.com/css-modules/css-modules)
-      // using the extension .module.css
-      {
-        test: /\.module\.css$/,
-        use: [
-          require.resolve("style-loader"),
-          {
-            loader: require.resolve("css-loader"),
-            options: {
-              importLoaders: 1,
-              modules: true,
-              localIdentName: "[path]__[name]___[local]"
-            }
-          },
-          {
-            loader: require.resolve("postcss-loader"),
-            options: postCSSLoaderOptions
-          }
-        ]
-      }, 
-      {
-        test: /\.(eot|svg|ttf|woff|woff2)$/,
-        use: [
-          {
-            loader: require.resolve('file-loader'),
-            options: { name: 'static/media/[name].[hash:8].[ext]',}  
-          }
-        ]
-      }, 
+     
     ]
   },
-  // this is also a good approach
-  // but what is the difference?
-  // theres alot of options in docs
-  // just rtfm
   // resolve: {
-  //   root: [
-  //     path.resolve('./app/modules'),
-  //     path.resolve('./vendor/modules')
-  //   ]
+  //   modules: [path.resolve(ourGlobalFolder, "node_modules"), "node_modules"]
   // },
-  resolve: {
-    modules: [path.resolve(ourGlobalFolder, "node_modules"), path.resolve(process.cwd(), 'node_modules'), "node_modules"]
-  },
   resolveLoader: {
     modules: [path.resolve(ourGlobalFolder, "node_modules")]
   },
@@ -139,9 +93,18 @@ module.exports = {
     "./src/index.js"
   ],
   output: {
-    filename: "bundle.js",
-    publicPath: publicPath,
-    path: path.resolve(process.cwd(), "build")
+     filename: "index.js",
+    // publicPath: publicPath,
+    path: path.resolve(process.cwd(), "lib"), 
+    library: libraryName, 
+    libraryTarget: 'umd',
+    // umdNamedDefine: true,
+    // libraryTarget: 'commonjs2',
+    
   },
-  plugins: [new CopyWebpackPlugin([{ from: "public" }])]
+  externals: {
+    "react": 'react',   // this line is just to use the React dependency of our parent-testing-project instead of using our own React.
+    'material-ui': 'material-ui'
+  }
+  
 };

@@ -46,5 +46,5 @@ However, if you have multiple projects, then npm installing this everytime would
 
 ## Roadmap
 
-Test
-Streamline dependencies
+- Test
+- Streamline dependencies

@@ -68,8 +68,16 @@ program
   .command("prod")
   .description("starts in prod mode")
   .action(function(cmd, options) {
-    console.log("Starting server");
+    console.log("building....");
     buildReact.prod();
   });
+
+  program
+  .command("lib")
+  .description("build library")
+  .action(function(cmd, options) {
+    console.log("building library");
+    buildReact.lib()
+  });  
 
 program.parse(process.argv);

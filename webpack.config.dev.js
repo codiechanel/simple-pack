@@ -146,7 +146,7 @@ module.exports = {
   // "/Users/admin/AppData/Roaming/npm/node_modules/@codiechanel/simple-pack"
 
   resolve: {
-    modules: [path.resolve(ourGlobalFolder, "node_modules"), "node_modules"]
+    modules: [path.resolve(ourGlobalFolder, "node_modules"), path.resolve(process.cwd(), 'node_modules'), "node_modules"]
   },
   resolveLoader: {
     modules: [path.resolve(ourGlobalFolder, "node_modules")]
