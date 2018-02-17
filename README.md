@@ -2,6 +2,8 @@
 
 simple-pack is my personal build tool for react apps, pretty much similar to create-react-app but less bloated.
 
+While this build tool is working (I use this everyday), I don't recommend using it in production though. You can use this for learning purposes, or for kickstarting pet or prototype projects. If you want to deploy to production, I recommend using create-react-app, nwb. You can simply copy your source files. 
+
 ## Features
 
 - Webpack 4
