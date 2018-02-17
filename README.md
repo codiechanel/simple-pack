@@ -8,11 +8,11 @@ While this build tool is working (I use this everyday), I don't recommend using 
 
 - Webpack 4
 - multi build options (react app, library, and backend via Netlify Lambda)
-- Uses the latest Babel that allows you to target specific browser versions.
+- supports proxy. Redirect requests to your node api server. 
+- Uses the latest Babel 7 that allows you to target specific browser versions. If you target only the latest browser, this means less babel plugins will need to be installed
 - Built-in post css
 - *one time global install (makes your project folder leaner) 
 - Netlify lambda support. Now you have one build tool to compile react and node js scripts. 
-- supports proxy. Redirect requests to your node api server. 
 - 68 mb install size. 
 - support for assets/images in css via file-loader
 
