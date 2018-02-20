@@ -1,6 +1,6 @@
 {
   "name": "@codiechanel/simple-pack",
-  "version": "1.0.9",
+  "version": "1.0.10",
   "description": "Fast react startup development",
   "engines": {
     "node": ">=6.10"
