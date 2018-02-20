@@ -103,6 +103,9 @@ module.exports = {
     // libraryTarget: 'commonjs2',
     
   },
-  externals: ["react", "material-ui"], 
+  /** 
+   * we are now adding this dynamically
+   */
+  // externals: ["react", "material-ui"], 
   
 };

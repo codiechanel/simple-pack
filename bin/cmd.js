@@ -10,9 +10,10 @@ var serve = require("../lib/serve");
 var program = require("commander");
 var fs = require("fs");
 var path = require("path");
-var pkg = JSON.parse(
-  fs.readFileSync(path.join(__dirname, "..", "package.json"))
-);
+// let pkg = JSON.parse(
+//   fs.readFileSync(path.join(__dirname, "..", "package.json"))
+// );
+let pkg = require(path.join(__dirname, "..", "package.json"));
 
 program.version(pkg.version);
 process.env.BABEL_ENV = "development"
