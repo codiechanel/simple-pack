@@ -8,6 +8,7 @@ While this build tool is working (I use this everyday), I don't recommend using 
 
 - Webpack 4
 - multi build options (react app, library, and backend via Netlify Lambda)
+- library output is umd
 - supports proxy. Redirect requests to your node api server. 
 - Uses the latest Babel 7 that allows you to target specific browser versions. If you target only the latest browser, this means less babel plugins will need to be installed
 - Built-in post css
@@ -16,6 +17,7 @@ While this build tool is working (I use this everyday), I don't recommend using 
 - 68 mb install size. 
 - support for assets/images in css via file-loader
 - supports url rewrite in dev't mode via `historyApiFallback`
+- supports externals when building a library
 
 ## Why I created this?
 
@@ -41,6 +43,11 @@ to install locally (not recommended):
 `npm i @codiechanel/simple-pack`
 
 However, if you have multiple projects, then npm installing this everytime would eat up a lot of space, which defeats the purpose of this build tool which was designed to be installed globally. 
+
+## Building a library
+
+- you can add `"externals":[]` in your package json to exempt modules
+from being compiled
 
 ## Plugins
 
