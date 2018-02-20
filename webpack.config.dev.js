@@ -31,6 +31,7 @@ module.exports = {
   devServer: {
     // no effect
     // inline: true,
+    historyApiFallback: true, 
     contentBase: path.join(process.cwd(), "build"),
     hot: true,
     filename: "bundle.js",

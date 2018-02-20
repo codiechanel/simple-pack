@@ -15,6 +15,7 @@ While this build tool is working (I use this everyday), I don't recommend using 
 - Netlify lambda support. Now you have one build tool to compile react and node js scripts. 
 - 68 mb install size. 
 - support for assets/images in css via file-loader
+- supports url rewrite in dev't mode via `historyApiFallback`
 
 ## Why I created this?
 
