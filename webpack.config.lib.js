@@ -78,6 +78,43 @@ module.exports = {
           }
         }
       },
+      {
+        test: /\.css$/,
+        exclude: /\.module\.css$/,
+        use: [
+          require.resolve("style-loader"),
+          {
+            loader: require.resolve("css-loader"),
+            options: {
+              importLoaders: 1
+            }
+          },
+          {
+            loader: require.resolve("postcss-loader"),
+            options: postCSSLoaderOptions
+          }
+        ]
+      },
+      // Adds support for CSS Modules (https://github.com/css-modules/css-modules)
+      // using the extension .module.css
+      {
+        test: /\.module\.css$/,
+        use: [
+          require.resolve("style-loader"),
+          {
+            loader: require.resolve("css-loader"),
+            options: {
+              importLoaders: 1,
+              modules: true,
+              localIdentName: "[path]__[name]___[local]"
+            }
+          },
+          {
+            loader: require.resolve("postcss-loader"),
+            options: postCSSLoaderOptions
+          }
+        ]
+      }, 
      
     ]
   },

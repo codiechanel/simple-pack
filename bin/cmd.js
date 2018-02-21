@@ -75,10 +75,13 @@ program
 
   program
   .command("lib")
+  .option('-w, --watch', 'watch mode')
   .description("build library")
   .action(function(cmd, options) {
-    console.log("building library");
-    buildReact.lib()
+    console.log("building library", cmd.watch);
+    buildReact.lib(cmd.watch)
   });  
 
 program.parse(process.argv);
+
+console.log("parsed",  program.watch);
