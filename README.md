@@ -18,6 +18,7 @@ While this build tool is working (I use this everyday), I don't recommend using 
 - support for assets/images in css via file-loader
 - supports url rewrite in dev't mode via `historyApiFallback`
 - supports externals when building a library
+- watch mode when building a library
 
 ## Why I created this?
 
