@@ -59,4 +59,7 @@ from being compiled
 ## Roadmap
 
 - Test
+- Css are currently inside the bundle
+- need to separate this later perhaps
+- Support Typescript
 - Streamline dependencies
