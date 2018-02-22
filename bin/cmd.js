@@ -1,7 +1,7 @@
 #!/usr/bin/env node
 
 ("use strict");
-console.log(__dirname, "process.cwd()", process.cwd());
+// console.log(__dirname, "process.cwd()", process.cwd());
 
 var buildReact = require("../lib/buildReact");
 var build = require("../lib/build");

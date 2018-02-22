@@ -33,7 +33,7 @@ const postCSSLoaderOptions = {
 module.exports = {
   // Don't attempt to continue if there are any errors.
   bail: true,
-  devtool: 'source-map',
+  // devtool: 'source-map',
   mode: "production",
   module: {
     rules: [
@@ -120,7 +120,15 @@ module.exports = {
         use: [
           {
             loader: require.resolve('file-loader'),
-            options: { name: 'static/media/[name].[hash:8].[ext]',}  
+            options: { 
+              /**
+               * let's simplify for now
+               */
+              name: '[name].[ext]',
+              // name: '[path][name].[ext]',
+              // publicPath: 'assets/'
+              // name: 'static/media/[name].[hash:8].[ext]',
+            }  
           }
         ]
       }, 

@@ -135,7 +135,15 @@ module.exports = {
         use: [
           {
             loader: require.resolve('file-loader'),
-            options: { name: 'static/media/[name].[hash:8].[ext]',}  
+            options: { 
+              /**
+               * let's simplify for now
+               */
+              // name: '[path][name].[ext]',
+              name: '[name].[ext]',
+              // outputPath: 'assets/', 
+              // publicPath: 'assets/'
+            }  
           }
         ]
       }, 
