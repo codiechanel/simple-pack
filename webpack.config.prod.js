@@ -33,6 +33,7 @@ const postCSSLoaderOptions = {
 module.exports = {
   // Don't attempt to continue if there are any errors.
   bail: true,
+  devtool: 'source-map',
   mode: "production",
   module: {
     rules: [
@@ -125,16 +126,6 @@ module.exports = {
       }, 
     ]
   },
-  // this is also a good approach
-  // but what is the difference?
-  // theres alot of options in docs
-  // just rtfm
-  // resolve: {
-  //   root: [
-  //     path.resolve('./app/modules'),
-  //     path.resolve('./vendor/modules')
-  //   ]
-  // },
   resolve: {
     modules: [path.resolve(ourGlobalFolder, "node_modules"), path.resolve(process.cwd(), 'node_modules'), "node_modules"]
   },
